@@ -1,0 +1,49 @@
+body {
+    background-color: #EEE9DA;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .navbar {
+    background-color: #FC5185;
+  }
+  
+  .logo {
+    padding: 5px 0px 10px;
+  }
+  
+  #brand-name {
+    display: inline-block;
+    height: 100%;
+    padding: 10px 0px 15px 0px;
+    font-size: larger;
+  } 
+  
+  .form_control {
+      border-radius: 6px;
+      font-size: 17px;
+      padding: 14px 16px;
+      width: 364px;
+  }
+  button{
+    align-self: center;
+    width: 339px;
+  }
+  
+  .login_popup {
+    border: 1px solid grey;
+    border-radius: 20px;
+    max-width: 370px;
+    margin: 10px ;
+    padding: 25px;
+  }
+  
+  .sign_up {
+    display: inline;
+  }
+  
+  div.head {
+    font-size: 30px;
+    padding-bottom: 10px ;
+  }
