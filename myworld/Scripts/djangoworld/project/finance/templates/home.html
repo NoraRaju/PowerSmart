@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'homestyle.css' %}">
+  <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <title>Personal Finance Tracker - Home Page</title>
+</head>
+<body>
+  <!--Navbar-->
+  <header>
+    <nav class="navbar navbar-default  navbar-fixed">
+      <div class="container">
+        <div class="navbar-header">
+          <img class="logo" src="{% static 'assets/logo.png' %}" alt="logo" height="60px"/>
+
+          <span id="brand-name">
+            Personal Finance Tracker
+          </span> 
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <div id="sidebar">
+    <h2>Welcome, {{fname}} {{lname}}</h2>
+    <a href="#">Home</a>
+    <a href="#">Income</a>
+    <a href="#">Expenses</a>
+    <a href="#">Transactions</a>
+    <a href="#">Logout</a>
+  </div>
+
+  <div id="main">
+    <div class="card">
+      <h3>Income</h3>
+      <p>Available income: $5000</p>
+    </div>
+
+    <div class="card">
+      <h3>Expenses</h3>
+      <p>Monthly expenses: $2000</p>
+    </div>
+
+    <div class="card">
+      <h3>Transactions</h3>
+      <!-- Add transaction details here -->
+    </div>
+
+    <div class="card">
+      <h3>Account Details</h3>
+      <!-- Add account details here -->
+    </div>
+  </div>
+
+</body>
+</html>

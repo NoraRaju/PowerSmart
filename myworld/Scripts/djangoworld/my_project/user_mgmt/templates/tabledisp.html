@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Display Database</title>
+</head>
+<body>
+  <table>
+    <tr>
+      <th style="border: 1px solid black;">Username</th>
+      <th style="border: 1px solid black;">Email Address</th>
+      <th style="border: 1px solid black;">Age</th>
+      <th style="border: 1px solid black;">Date of Birth</th>
+      <th style="border: 1px solid black;">Phone Number</th>
+      <th style="border: 1px solid black;">Password</th>
+      <th>EDIT</th>
+      <th>DELETE</th>
+    </tr>
+    {% for x in head %}
+    <tr>
+      <td style="border: 1px solid black;">{{x.UserName}}</td>
+      <td style="border: 1px solid black;">{{x.MailID}}</td>
+      <td style="border: 1px solid black;">{{x.Age}}</td>
+      <td style="border: 1px solid black;">{{x.DOB}}</td>
+      <td style="border: 1px solid black;">{{x.PhnNo}}</td>
+      <td style="border: 1px solid black;">{{x.Password}}</td>
+      <td><a href="/editPage/{{x.id}}"> <button>Edit</button></a></td>
+      <td><button>Delete</button></td>
+    </tr>
+    {% endfor %}
+  </table>
+</body>
+</html>

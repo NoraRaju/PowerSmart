@@ -1,0 +1,53 @@
+body {
+  background-color: #EEE9DA;
+}
+
+.navbar {
+  background-color: #FC5185;
+}
+
+.logo {
+  padding: 5px 0px 10px;
+}
+
+#brand-name {
+  display: inline-block;
+  height: 100%;
+  padding: 10px 0px 15px 0px;
+  font-size: larger;
+} 
+
+#sidebar {
+      width: 200px;
+      height: 100%;
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      position: fixed;
+      top: 0;
+      left: 0;
+    }
+
+    #sidebar a {
+      display: block;
+      color: #fff;
+      margin-bottom: 10px;
+      text-decoration: none;
+    }
+
+    #sidebar a:hover {
+      color: #ffcd00;
+    }
+
+    #main {
+      margin-left: 220px;
+      padding: 20px;
+    }
+
+    .card {
+      background-color: #f1f1f1;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 4px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
