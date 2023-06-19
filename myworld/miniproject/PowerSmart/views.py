@@ -41,7 +41,8 @@ def signup(request):
             MailID=request.POST['mail'],
             Password=request.POST['password']
         )
-        request.session['id'] = user.id
+        #request.session['id'] = user.id
+        request.session.save()
 
         return redirect('login') 
     
