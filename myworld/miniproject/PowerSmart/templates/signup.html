@@ -18,6 +18,13 @@
 </head>
 <body>
 
+  {% if display_alert  %}
+    <script>
+        // Display the message as an alert
+        alert('{{ error }}');
+    </script>
+{% endif %}
+
   <!--Navbar-->
   <header>
     <nav class="navbar navbar-default  navbar-fixed">
