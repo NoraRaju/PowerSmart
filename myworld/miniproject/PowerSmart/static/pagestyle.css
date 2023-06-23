@@ -1,77 +1,73 @@
 body {
-    background-color: #F1F4F5;
-  }
-  
-  .sidebar {
-    width: 275px;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    background-color: #F1F4F5;
-    padding: 5px;
-    margin: 15px;
-    border-radius: 10px;
-    box-sizing: border-box;
-  }
-  
-  .navbar-brand {
-    margin-left: 20px;
-  }
-  .cardib {
-    width: 150px;
-    height: 150px;
-    background-color: #ADC3D1;
-    margin-right: 10px;
-    text-align: center;
-    line-height: 300px;
-    margin-left: 100px;
-    border-radius: 10px;
-    
-  }
-  .cardiapp {
-    
-    background-color: #ADC3D1;
-    margin-right: 25px;
-    margin-left: 150px;
-    margin-bottom: 20px;
-    padding: 20px;
-    width: 600px;
-    height: 100px; /* Adjust the height as needed */
-    border-radius: 4px;
-  }
-  .main-content {
-   
-    display: flex;
-    margin-left: 220px;
-    padding: 20px;
-    
-  }
-  .navbar-brand{
-    border-radius: 8px;
-  }
-  .main-content2 {
-    display: flex;
-    margin-left: 350px;
-    padding: 20px;
-  }
-  .maincontentapp{
-    margin-left: 220px;
-    margin-top: 50px;
-    padding: 20px;
-    display: flex;
-    flex-wrap: wrap;
-  }
-  .maincontentroom{
-    margin-left: 220px;
-    padding: 20px; 
-    display: flex;
-    flex-wrap: wrap;
-  }
-  .roomimage{
-    height: 500px;
-    width: 700px;
-  }
-.maincon{
+  background-color: #f1f4f5;
+}
+
+.sidebar {
+  width: 275px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background-color: #f1f4f5;
+  padding: 5px;
+  margin: 15px;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+.navbar-brand {
+  margin-left: 20px;
+}
+.cardib {
+  width: 150px;
+  height: 150px;
+  background-color: #adc3d1;
+  margin-right: 10px;
+  text-align: center;
+  line-height: 300px;
+  margin-left: 100px;
+  border-radius: 10px;
+}
+.cardiapp {
+  background-color: #adc3d1;
+  margin-right: 25px;
+  margin-left: 150px;
+  margin-bottom: 20px;
+  padding: 20px;
+  width: 600px;
+  height: 100px; /* Adjust the height as needed */
+  border-radius: 4px;
+}
+.main-content {
+  display: flex;
+  margin-left: 220px;
+  padding: 20px;
+}
+.navbar-brand {
+  border-radius: 8px;
+}
+.main-content2 {
+  display: flex;
+  margin-left: 350px;
+  padding: 20px;
+}
+.maincontentapp {
+  margin-left: 220px;
+  margin-top: 50px;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.maincontentroom {
+  margin-left: 220px;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.roomimage {
+  height: 500px;
+  width: 700px;
+}
+.maincon {
   background-color: white;
   margin-top: 40px;
   margin-right: 25px;
@@ -82,17 +78,17 @@ body {
   height: 100px; /* Adjust the height as needed */
   border-radius: 4px;
 }
-.desc{
+.desc {
   font-family: Arial, Helvetica, sans-serif;
   justify-content: center;
   margin-top: 1em;
 }
-.locimg{
+.locimg {
   margin-top: 5px;
   height: 35px;
   width: 35px;
 }
-.icon{
+.icon {
   margin-top: 30px;
   height: 35px;
   width: 35px;

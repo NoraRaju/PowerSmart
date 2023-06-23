@@ -54,3 +54,6 @@ def appliances(request) :
 
 def room(request) :
     return render(request, 'room.html')
+
+def contact(request) :
+    return render(request, 'contact.html')
