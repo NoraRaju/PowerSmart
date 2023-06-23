@@ -34,16 +34,13 @@
             </a>
           </li>
           <li class="nav-item menu">
-            <a class="nav-link" href="#"><i class="bi bi-house-door"></i>Dashboard</a>
+            <a class="nav-link" href="{% url 'home' %}"><i class="bi bi-house-door"></i>Dashboard</a>
           </li>
           <li class="nav-item menu">
-            <a class="nav-link" href="#"><i class="bi bi-currency-dollar"></i>Cost</a>
+            <a class="nav-link" href="{% url 'app' %}"><i class="bi bi-lightbulb"></i>Appliances</a>
           </li>
           <li class="nav-item menu">
-            <a class="nav-link" href="#"><i class="bi bi-lightbulb"></i>Appliances</a>
-          </li>
-          <li class="nav-item menu">
-            <a class="nav-link" href="#"><i class="bi bi-door-open"></i>Usage by Rooms</a>
+            <a class="nav-link" href="{% url 'room' %}"><i class="bi bi-door-open"></i>Usage by Rooms</a>
           </li>
           <li class="nav-item sys_menu">
             <a class="nav-link" href="#"><i class="bi bi-info-lg"></i>About Us</a>
@@ -55,36 +52,15 @@
       </span>
     </nav>
   </aside>
-<!--
-  <section class="main_content">
-    <span>
-
-      <div class="main_head">
-        <div>Energy Dashboard</div>
-        <div class="side_tag">
-          <span>
-              <div class="btn-group">
-                <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">Previous Days</button>
-                <div class="dropdown-menu">
-                  <a class="dropdown-item" href="#">Yesterday</a>
-                  <a class="dropdown-item" href="#">Last Week</a>
-                  <a class="dropdown-item" href="#">Last Month</a>
-                </div>
-              </div>
-              <button type="button" class="btn btn-primary"><i class="bi bi-gift"></i>Notifications</button>
-          </span>
-        </div>
-      </div>
-
-      <div class="data_graph">
-        <div class="graph_head">
-          <h6>Cost: </h6>
-          <span>This Month</span>
-        </div>
-      </div>
-
-    </span>
-  </section>
-  -->
+  <div class="main-content">
+    <div class="cardib">Card 1</div>
+    <div class="cardib">Card 2</div>
+    <div class="cardib">Card 3</div>
+    <div class="cardib">Card 4</div>
+  </div>
+  <div class="main-content2">
+    <img class="graph" src="{% static 'assets/graph.png' %}" alt="graph"/>
+  </div>
+</div>
 </body>
 </html>

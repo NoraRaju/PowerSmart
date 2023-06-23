@@ -47,10 +47,10 @@ def signup(request):
         return redirect('login') 
     
 def home(request) :
-   i = request.session['id']
-   udet = USERS.objects.get(id = i)
-   context = {
-      'fname' : udet.FirstName,
-      'lname' : udet.LastName
-   }
-   return render(request, 'home.html', context)
+   return render(request, 'home.html')
+
+def appliances(request) :
+   return render(request, 'appliances.html')
+
+def room(request) :
+    return render(request, 'room.html')
