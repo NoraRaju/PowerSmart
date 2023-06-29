@@ -29,6 +29,13 @@ body {
   align-items: center;
 }
 
+.graph-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
 .dashboard-heading {
   margin: 0;
 }
