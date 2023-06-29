@@ -12,7 +12,7 @@
 
 <!-- Latest compiled JavaScript -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://www.gstatic.com/charts/loader.js"></script>
+
     <title>Energy Monitoring and Management System</title>
   </head>
   <body>
@@ -104,63 +104,22 @@
       <div class="usage-graph">
         <div class="graph-header">
         <h3 class="graph-heading">Usage</h3>
-        <select class="graph-dropdown">
+        <!--<select class="graph-dropdown">
           <option value="daily">Daily</option>
           <option value="weekly">Weekly</option>
           <option value="monthly">Monthly</option>
-        </select>
+        </select>-->
       </div>
-        <div id="graph-container">
-          <div id="myChart"></div>
-          <script>
-            google.charts.load('current',{packages:['corechart'], 'language': 'in'});
-            google.charts.setOnLoadCallback(drawChart);
-            
-            function drawChart() {
-            // Set Data
-            // Set Data
-const data = google.visualization.arrayToDataTable([
-  ['Time', 'Price'],
-  ['00:00', 50000],
-  ['01:00', 60000],
-  ['02:00', 70000],
-  ['03:00', 80000],
-  ['04:00', 90000],
-  ['05:00', 100000],
-  ['06:00', 110000],
-  ['07:00', 120000],
-  ['08:00', 130000],
-  ['09:00', 140000],
-  ['10:00', 150000],
-  ['11:00', 160000],
-  ['12:00', 170000],
-]);
-
-            
-            // Set Options
-            const options = {
-              title: new Date().toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', year: 'numeric' }), // Set the title with "dd-mm-yyyy" format
-              curveType: 'function',
-              hAxis: {
-    title: 'Time (12-hour format)',
-    format: 'HH:mm', // Format for time display
-  },
-  vAxis: {
-    title: 'Price (Rupees ₹)',
-    format: 'currency', // Format for currency display
-    minValue: 100, // Minimum value for the y-axis
-    maxValue: 4000, // Maximum value for the y-axis
-  },
-              legend: 'none'
-            };
-            
-            // Draw
-            const chart = new google.visualization.LineChart(document.getElementById('myChart'));
-            chart.draw(data, options);
-            
-            }
-            </script>
-        </div>
+      <div id="graph-container">
+        <div id="myChart"></div>
+      </div>
+      
+      <script src="https://www.gstatic.com/charts/loader.js"></script>
+      <script src="{% static 'js/charts.js' %}"></script>
+      <script>
+        google.charts.load('current', { packages: ['corechart'], language: 'in' });
+        google.charts.setOnLoadCallback(drawChart);
+      </script>
       </div>
 
 </div>
