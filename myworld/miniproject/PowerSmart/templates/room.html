@@ -46,7 +46,7 @@
             <a class="nav-link" href="{% url 'room' %}"><i class="bi bi-door-open"></i>Usage by Rooms</a>
           </li>
           <li class="nav-item sys_menu">
-            <a class="nav-link" href="#"><i class="bi bi-info-lg"></i>About Us</a>
+            <a class="nav-link" href="{% url 'about' %}"><i class="bi bi-info-lg"></i>About Us</a>
           </li>
           <li class="nav-item sys_menu">
             <a class="nav-link" href="{% url 'contact' %}"><i class="bi bi-telephone"></i>Contact Us</a>
@@ -55,10 +55,7 @@
       </span>
     </nav>
   </aside>
-  <div class="maincontentroom">
-    <div class="cardiapp">Room 1</div>
-    <div class="cardiapp">Room 2</div>
-</div>
+  
   <div class="main-content2">
     <img class="roomimage" src="{% static 'assets/roomimg2.jpg' %}" alt="roomplan"/>
   </div>

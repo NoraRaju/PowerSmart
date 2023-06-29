@@ -58,5 +58,8 @@ def room(request) :
 def cost(request) :
     return render(request, 'cost.html')
 
+def about(request) :
+    return render(request, 'about.html')
+
 def contact(request) :
     return render(request, 'contact.html')
