@@ -12,10 +12,44 @@ body {
   margin: 15px;
   border-radius: 10px;
   box-sizing: border-box;
+  align-items: flex-start;
+}
+
+.container-fluid {
+  display: block;
 }
 
 .userCard {
   margin-bottom: 10px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dashboard-heading {
+  margin: 0;
+}
+
+.weather {
+  display: flex;
+  align-items: center;
+}
+
+.weather-info {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.temperature {
+  margin-right: 5px;
+}
+
+.weather-heading {
+  margin: 0;
 }
 
 h4 {
@@ -107,7 +141,7 @@ h4 {
 }
 
 .media-rel {
-  font-size: 40px; 
+  font-size: 40px;
   margin: 50px 10px;
 }
 

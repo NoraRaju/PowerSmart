@@ -37,7 +37,7 @@
             <a class="nav-link" href="{% url 'home' %}"><i class="bi bi-house-door"></i>Dashboard</a>
           </li>
           <li class="nav-item menu">
-            <a class="nav-link" href="#"><i class="bi bi-currency-dollar"></i>Cost</a>
+            <a class="nav-link" href="{% url 'cost' %}"><i class="bi bi-currency-dollar"></i>Cost</a>
           </li>
           <li class="nav-item menu">
             <a class="nav-link" href="{% url 'app' %}"><i class="bi bi-lightbulb"></i>Appliances</a>
@@ -55,15 +55,64 @@
       </span>
     </nav>
   </aside>
-  <div class="main-content">
-    <div class="cardib">Card 1</div>
-    <div class="cardib">Card 2</div>
-    <div class="cardib">Card 3</div>
-    <div class="cardib">Card 4</div>
-  </div>
-  <div class="main-content2">
-    <img class="graph" src="{% static 'assets/graph.png' %}" alt="graph"/>
-  </div>
+  <div class="maincon">
+      <div class="header">
+        <h5 class="dashboard-heading">Energy Dashboard</h5>
+        <div class="weather">
+          <div class="weather-info">
+            <i class="bi bi-thermometer-half"></i>
+            <span class="temperature">25°C</span>
+          </div>
+          <p class="weather-heading">Today Weather</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Previous Month Electricity Cost</h5>
+              <p class="card-text">₹1000</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">This Month Electricity Cost</h5>
+              <p class="card-text">₹1500</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Previous Month Electricity Usage</h5>
+              <p class="card-text">100 kWh</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">This Month Electricity Usage</h5>
+              <p class="card-text">150 kWh</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="usage-graph">
+        <h3 class="graph-heading">Usage</h3>
+        <select class="graph-dropdown">
+          <option value="daily">Daily</option>
+          <option value="weekly">Weekly</option>
+          <option value="monthly">Monthly</option>
+        </select>
+        <div id="graph-container">
+          <!-- The graph will be dynamically generated here -->
+        </div>
+      </div>
+
 </div>
-</body>
+</div>
+  </body>
 </html>
