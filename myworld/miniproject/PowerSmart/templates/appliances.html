@@ -55,20 +55,64 @@
       </span>
     </nav>
   </aside>
-  <div class="maincon">
-    <div class="row">
-      <div class="col-md-3">
-        <div class="card h-100">
-          <div class="card-body">
-            <h5 class="card-title">Appliance 1:</h5>
-            <p class="card-text">Current:</p>
-            <p class="card-text">Voltage:</p>
-            <p class="card-text">Power:</p>
-          </div>
+
+  
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+    import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-database.js";
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyAbmZPy5lUsA0mo_0tbkSH2DemypRRgyb4",
+      authDomain: "powersmart-f14f1.firebaseapp.com",
+      databaseURL: "https://powersmart-f14f1-default-rtdb.firebaseio.com",
+      projectId: "powersmart-f14f1",
+      storageBucket: "powersmart-f14f1.appspot.com",
+      messagingSenderId: "514395710434",
+      appId: "1:514395710434:web:08995e3ea6bf699cda0fbb",
+      measurementId: "G-8916GFC3LH"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+
+    // Access the Firebase Realtime Database and retrieve data
+    const dataRef = ref(database, "/sensorData");
+    onValue(dataRef, (snapshot) => {
+      const data = snapshot.val();
+
+      // Update the values on the web page
+      document.getElementById('current-value').textContent = data.current || 'Data not available';
+      document.getElementById('power-value').textContent = data.power || 'Data not available';
+      document.getElementById('voltage-value').textContent = data.voltage || 'Data not available';
+    });
+  </script>
+
+<body>
+  
+  
+
+<div class="maincon">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">  Appliance 1:</h5>
+          <p>Current:</p>
+          <h5 id="current-value">Loading...</h5>
+        
+          <p>Power:</p>
+          <h5 id="power-value">Loading...</h5>
+        
+          <p>Voltage:</p>
+          <h5 id="voltage-value">Loading...</h5>
+          
         </div>
       </div>
+    </div>
+  </div>
 </div>
-<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
   </body>
 </html>

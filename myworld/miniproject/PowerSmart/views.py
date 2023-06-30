@@ -3,6 +3,10 @@ from django.http import HttpResponse
 from django.contrib import messages
 from .models import USERS
 
+
+
+
+
 # Create your views here.
 
 def login(request) : 
@@ -49,14 +53,15 @@ def signup(request):
 def home(request) :
    return render(request, 'home.html')
 
-def appliances(request) :
-   return render(request, 'appliances.html')
 
 def room(request) :
     return render(request, 'room.html')
 
 def cost(request) :
     return render(request, 'cost.html')
+
+def appliances(request) :
+    return render(request, 'appliances.html')
 
 def about(request) :
     return render(request, 'about.html')
