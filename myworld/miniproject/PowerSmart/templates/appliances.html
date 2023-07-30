@@ -95,24 +95,69 @@
   
 
 <div class="maincon">
+  <div class="header">
+    <h5 class="dashboard-heading">Appliances</h5>
+  </div>
   <div class="row">
     <div class="col-md-3">
       <div class="card h-100">
         <div class="card-body">
-          <h5 class="card-title">  Appliance 1:</h5>
-          <p>Current:</p>
-          <h5 id="current-value">Loading...</h5>
+          <h4 class="card-title">  Appliance 1:          
+           Kettle</h4> 
+          <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked></div>
+          <h5>Current: (in Ampere)</h5>
+          <h6 id="current-value" style="color: red">Loading...</h6>
         
-          <p>Power:</p>
-          <h5 id="power-value">Loading...</h5>
+          <h5>Power: (in Watt)</h5>
+          <h6 id="power-value" style="color: red">Loading...</h6>
         
-          <p>Voltage:</p>
-          <h5 id="voltage-value">Loading...</h5>
+          <h5>Voltage: (in Volt)</h5>
+          <h6 id="voltage-value" style="color: red">Loading...</h6>
+          
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card h-100">
+        <div class="card-body">
+          <h4 class="card-title">  Appliance 2: Fridge</h4>
+          <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDisabled" disabled>
+          </div>
+          <p>Current: (in Ampere)</p>
+          <p id="current-value">...</p>
+        
+          <p>Power: (in Watt)</p>
+          <p id="power-value">...</p>
+        
+          <p>Voltage: (in Volt)</p>
+          <p id="voltage-value">...</p>
+          
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card h-100">
+        <div class="card-body">
+          <h4 class="card-title">  Appliance 3: Microwave</h4>
+          <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDisabled" disabled>
+          </div>
+          <p>Current: (in Ampere)</p>
+          <p id="current-value">...</p>
+        
+          <p>Power: (in Watt)</p>
+          <p id="power-value">...</p>
+        
+          <p>Voltage: (in Volt)</p>
+          <p id="voltage-value">...</p>
           
         </div>
       </div>
     </div>
   </div>
 </div>
+
   </body>
 </html>

@@ -57,20 +57,45 @@
           </span>
         </nav>
       </aside>
+      <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+        import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-database.js";
+    
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+          apiKey: "AIzaSyAbmZPy5lUsA0mo_0tbkSH2DemypRRgyb4",
+          authDomain: "powersmart-f14f1.firebaseapp.com",
+          databaseURL: "https://powersmart-f14f1-default-rtdb.firebaseio.com",
+          projectId: "powersmart-f14f1",
+          storageBucket: "powersmart-f14f1.appspot.com",
+          messagingSenderId: "514395710434",
+          appId: "1:514395710434:web:08995e3ea6bf699cda0fbb",
+          measurementId: "G-8916GFC3LH"
+        };
+    
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const database = getDatabase(app);
+    
+        // Access the Firebase Realtime Database and retrieve data
+        const dataRef = ref(database, "/sensorData");
+        onValue(dataRef, (snapshot) => {
+          const data = snapshot.val();
+    
+          // Update the values on the web page
+          document.getElementById('kettle-power').textContent = data.power || 'Data not available';
+        });
+      </script>
     <div class="maincon">
     <div class="card">
       <div class="card-body">
         <div class="container mb-5 mt-3">
           <div class="row d-flex align-items-baseline">
             <div class="col-xl-9">
-              <p style="color: #7e8d9f;font-size: 20px;">Invoice >> <strong>ID: #123-123</strong></p>
+              <p style="color: #7e8d9f;font-size: 20px;">Monthly Bill: </p>
             </div>
-            <div class="col-xl-3 float-end">
-              <a class="btn btn-light text-capitalize border-0" data-mdb-ripple-color="dark"><i
-                  class="fas fa-print text-primary"></i> Print</a>
-              <a class="btn btn-light text-capitalize" data-mdb-ripple-color="dark"><i
-                  class="far fa-file-pdf text-danger"></i> Export</a>
-            </div>
+            
             <hr>
           </div>
     
@@ -87,10 +112,7 @@
             <div class="row">
               <div class="col-xl-8">
                 <ul class="list-unstyled">
-                  <li class="text-muted">To: <span style="color:#5d9fc5 ;">John Lorem</span></li>
-                  <li class="text-muted">Street, City</li>
-                  <li class="text-muted">State, Country</li>
-                  <li class="text-muted"><i class="fas fa-phone"></i> 123-456-789</li>
+                  <li class="text-muted">To: <span style="color:#5d9fc5 ;">{{fname}} {{lname}}</span></li>
                 </ul>
               </div>
               <div class="col-xl-4">
@@ -98,14 +120,35 @@
                 <ul class="list-unstyled">
                   <li class="text-muted"><i class="fas fa-circle" style="color:#84B0CA ;"></i> <span
                       class="fw-bold">ID:</span>#123-456</li>
-                  <li class="text-muted"><i class="fas fa-circle" style="color:#84B0CA ;"></i> <span
-                      class="fw-bold">Creation Date: </span>Jun 23,2021</li>
+                      <li class="text-muted">
+                        <i class="fas fa-circle" style="color:#84B0CA ;"></i>
+                        <span class="fw-bold creation-date">Creation Date: </span>
+                      </li>
+                      
                   <li class="text-muted"><i class="fas fa-circle" style="color:#84B0CA ;"></i> <span
                       class="me-1 fw-bold">Status:</span><span class="badge bg-warning text-black fw-bold">
                       Unpaid</span></li>
                 </ul>
               </div>
             </div>
+
+            <!-- Move the <script> tag after the "creation-date" list item -->
+
+<script>
+  // Get the current date
+  const currentDate = new Date();
+            
+  // Format the date as "MMM DD, YYYY" (e.g., Jun 23, 2023)
+  const formattedDate = currentDate.toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric"
+  });
+            
+  // Update the content of the span with the formatted date
+  document.querySelector(".creation-date").textContent += formattedDate;
+</script>
+
     
             <div class="row my-2 mx-1 justify-content-center">
               <table class="table table-striped table-borderless">
@@ -114,58 +157,58 @@
                     <th scope="col">#</th>
                     <th scope="col">Appliance Name</th>
                     <th scope="col">Current Units</th>
-                    <th scope="col">Cost per unit</th>
+                    <th scope="col">Cost per unit(Rs)</th>
                     <th scope="col">Amount</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
                     <th scope="row">1</th>
-                    <td>Pro Package</td>
+                    <td>Kettle</td>
                     <td>4</td>
-                    <td>$200</td>
-                    <td>$800</td>
+                    <td>2.0</td>
+                    <td id="amount1"></td>
                   </tr>
                   <tr>
                     <th scope="row">2</th>
-                    <td>Web hosting</td>
-                    <td>1</td>
-                    <td>$10</td>
-                    <td>$10</td>
+                    <td>Fridge</td>
+                    <td>0.001</td>
+                    <td>2.0</td>
+                    <td id="amount2"></td>
                   </tr>
                   <tr>
                     <th scope="row">3</th>
-                    <td>Consulting</td>
-                    <td>1 year</td>
-                    <td>$300</td>
-                    <td>$300</td>
+                    <td>Microwave</td>
+                    <td>0.001</td>
+                    <td>2.0</td>
+                    <td id="amount3"></td>
                   </tr>
                 </tbody>
     
               </table>
+              
             </div>
             <div class="row">
-              <div class="col-xl-8">
-                <p class="ms-3">Add additional notes and payment information</p>
+              <div class="col-xl-9">
+                <p class="ms-3"></p>
     
               </div>
               <div class="col-xl-3">
-                <ul class="list-unstyled">
-                  <li class="text-muted ms-3"><span class="text-black me-4">SubTotal</span>$1110</li>
-                  <li class="text-muted ms-3 mt-2"><span class="text-black me-4">Tax(15%)</span>$111</li>
+                <p>Subtotal: <span id="subtotal">0</span></p>
+                <p>Tax (15%): <span id="tax">0</span></p>
+                <p>Grand Total: <span id="grandTotal">0</span></p>
+                <!--<ul class="list-unstyled">
+                  <li class="ms-3"><p>Subtotal: <span id="subtotal">0</span></p></li>
+                  <li class="ms-3 mt-2"><span class="text-black me-4">Tax(15%)</span>$111</li>
                 </ul>
                 <p class="text-black float-start"><span class="text-black me-3"> Total Amount</span><span
-                    style="font-size: 25px;">$1221</span></p>
+                    style="font-size: 25px;">$1221</span></p>-->
               </div>
             </div>
-            <hr>
+                        <hr>
             <div class="row">
               <div class="col-xl-10">
-                <p>Thank you for your purchase</p>
-              </div>
-              <div class="col-xl-2">
-                <button type="button" class="btn btn-primary text-capitalize"
-                  style="background-color:#60bdf3 ;">Pay Now</button>
+                <p>Thank you</p>
               </div>
             </div>
     
@@ -176,5 +219,48 @@
   </div>
     
   </div>
+  
+  <script>
+    function calculateAmount(currentUnits, costPerUnit) {
+      // Multiply currentUnits by 1000 to convert to whole number
+      const currentUnitsWhole = currentUnits * 1000;
+      return (currentUnitsWhole * costPerUnit) / 1000; // Divide by 1000 to get the actual amount
+    }
+  
+    function calculateSubtotal() {
+      const amounts = document.querySelectorAll('[id^="amount"]');
+      let subtotal = 0;
+      amounts.forEach((amount) => {
+        subtotal += parseFloat(amount.textContent || 0);
+      });
+      return subtotal;
+    }
+  
+    function calculateGrandTotal(subtotal) {
+      const taxPercentage = 15;
+      const taxAmount = (subtotal * taxPercentage) / 100;
+      return subtotal + taxAmount;
+    }
+  
+    function updateTable() {
+      const currentUnits = [4, 0.001, 0.001]; // Update the values here (e.g., [4, 2, 1])
+      const costPerUnit = [2.0, 2.0, 2.0]; // Update the actual cost per unit here
+      for (let i = 1; i <= 3; i++) {
+        const amount = calculateAmount(currentUnits[i - 1], costPerUnit[i - 1]);
+        document.getElementById(`amount${i}`).textContent = `Rs ${amount.toFixed(2)}`;
+      }
+  
+      const subtotal = calculateSubtotal();
+      document.getElementById('subtotal').textContent = `Rs ${subtotal.toFixed(2)}`;
+  
+      const grandTotal = calculateGrandTotal(subtotal);
+      document.getElementById('grandTotal').textContent = `Rs ${grandTotal.toFixed(2)}`;
+    }
+  
+    updateTable();
+  </script>
+  
+
+  
 </body>
 </html>
