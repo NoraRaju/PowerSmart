@@ -3,25 +3,30 @@
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+    <!-- Latest compiled and minified CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <title>PowerSmart - About Us</title>
+    <!-- Required meta tags -->
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 
     <!-- Linking CSS File index.css -->
 
-    <link rel="stylesheet" href="{% static 'index.css' %}">
-
-    <title>Energy Monitoring and Management System</title>
 </head>
 
 <body>
   <aside class="sidebar">
     <nav class="navbar">
-      <span class="container-fluid">
+      <span class="Content container-fluid">
         <ul class="navbar-nav">
           <li class="nav-item">
             <a class="nav-link" href="#">
@@ -59,63 +64,37 @@
     </nav>
   </aside>
   <div class="maincon">
-    <div class="container-fluid">
-        <h1 class="text-center mt-5 display-3 fw-bold">About <span class="theme-text">Us</span></h1>
-        <hr class="mx-auto mb-5 w-25">
-		<p> <center>Our project is basically designed with the idea to help every household to reduce power consumption and thereby help in the overall energy conservation  </center></p>
-        <div class="row mb-5">
-            <div class="col-12 col-sm-6 col-md-3 m-auto">
-                <!-- card starts here -->
-                <div class="card shadow">
-                    
-                    <div class="card-body">
-                        <h3 class="text-center">Ensure green energy goals</h3>
-                        <hr class="mx-auto w-75">
-                        <p>
-                            Both downstream and upstream professionals are realising the importance of green energy motives.They are taking steps to ensure these goals.With energy monitoring sensors, performance and power consumption data and utilisers,faculty managers can maximise the use of renewables in their services and adopt energy conservation strategies accordingly
-                        </p>
-                    </div>
-                </div>
-                <!-- card ends here -->
-            </div>
-            <!-- col ends here -->
-            <div class="col-12 col-sm-6 col-md-3 m-auto">
-                <!-- card starts here -->
-                <div class="card shadow">
-                    
-                    <div class="card-body">
-                        <h3 class="text-center">Optimise asset maintanence</h3>
-                        <hr class="mx-auto w-75">
-                        <p>
-                            The Internet Of Things offers massive advantages to the energy industry.This connected technology comes with sensors,data,and analytics that can effectively monitor the performance of power plants and distribution networks.Optimising asset maintanence becomes smart with IoT technology.
-                        </p>
-                    </div>
-                </div>
-                <!-- card ends here -->
-            </div>
-            <!-- col ends here -->
-            <div class="col-12 col-sm-6 col-md-3 m-auto">
-                <!-- card starts here -->
-                <div class="card shadow">
-                
-                    <div class="card-body">
-                        <h3 class="text-center">Reduce energy consumption</h3>
-                        <hr class="mx-auto w-75">
-                        <p>
-                            One of the major benefits of IoT based solutions for energy management is the overall reduction of energy spending in buildingd.It comes with smart metering,real-time power usage monitoring and data-driven predictions that eliminate energy waste in buildingd.
-                        </p>
-                    </div>
-                </div>
-                <!-- card ends here -->
-            </div>
-            <!-- col ends here -->
-        
-                
-            </div>
-            <!-- col ends here -->
+    <h1 class="heading">ABOUT US </h1>
+    <p class="desc">Our project is basically designed with the idea to help every household to reduce power consumption and thereby help in the overall energy conservation</p>
+    
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      <div class="col">
+        <div class="Content card">
+          <div class="card-body">
+            <h3 class="card-title">Ensure green energy goals</h3>
+            <p class="card-text">Both downstream and upstream professionals are realising the importance of green energy motives.They are taking steps to ensure these goals.With energy monitoring sensors, performance and power consumption data and utilisers,faculty managers can maximise the use of renewables in their services and adopt energy conservation strategies accordingly.</p>
+          </div>
         </div>
+      </div>
+      <div class="col">
+        <div class="Content card">
+          <div class="card-body">
+            <h3 class="card-title">Optimise asset maintanence</h3>
+            <p class="card-text">The Internet Of Things offers massive advantages to the energy industry.This connected technology comes with sensors,data,and analytics that can effectively monitor the performance of power plants and distribution networks.Optimising asset maintanence becomes smart with IoT technology.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="Content card">
+          <div class="card-body">
+            <h3 class="card-title">Reduce energy consumption</h3>
+            <p class="card-text">One of the major benefits of IoT based solutions for energy management is the overall reduction of energy spending in buildingd.It comes with smart metering,real-time power usage monitoring and data-driven predictions that eliminate energy waste in building.</p>
+          </div>
+        </div>
+      </div>
+      
     </div>
-  </div>
+</div>
 
 
     <!-- Option 1: Bootstrap Bundle with Popper -->

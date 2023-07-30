@@ -164,32 +164,31 @@ h4 {
 .info a {
   padding-bottom: 50px;
 }
-@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+
 
 * {
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
-  font-family: "Nunito", sans-serif;
 }
 
 .theme-text {
   color: #474af0;
 }
 
-.card-img-top {
+.Content.card-img-top {
   height: 200px;
   width: 100%;
 }
-.card {
+.Content.card {
   z-index: 1;
   overflow: hidden;
   transition: 0.5s;
 }
-.card:hover {
+.Content.card:hover {
   color: white;
 }
-.card::before {
+.Content.card::before {
   content: "";
   position: absolute;
   left: -100%;
@@ -200,12 +199,12 @@ h4 {
   transition: 0.5s;
   z-index: -1;
 }
-.card:hover::before {
+.Content.card:hover::before {
   left: 0%;
   color: white;
 }
-.container-fluid {
+/*.Content.container-fluid {
   background-image: url("blob-scene-haikei.svg");
   background-position: center;
   background-size: cover;
-}
+}*/
