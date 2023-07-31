@@ -83,7 +83,7 @@
       const data = snapshot.val();
 
       // Update the values on the web page
-      document.getElementById('kettle-power').textContent = data.power || 'Data not available';
+      document.getElementById('kettle-energy').textContent = data.energy || 'Data not available';
     });
   </script>
 
@@ -91,7 +91,7 @@
     <div class="header">
       <h5 class="dashboard-heading">Usage by Rooms</h5>
       <div class="weather">
-        <p class="weather-heading">Power of appliances by room (in Watt)</p>
+        <p class="weather-heading">Energy of appliances by room (in Joule)</p>
       </div>
     </div>
   <div class="row">
@@ -121,7 +121,7 @@
           <h5 class="card-title">Kitchen</h5>
           <p class="card-text">Bulb:</p>
           <p class="card-text">Microwave:</p>
-          <h5 class="card-text" style="color: red;">Kettle: <span id="kettle-power">Loading...</span></h5>
+          <h5 class="card-text" style="color: red;">Kettle: <span id="kettle-energy">Loading...</span></h5>
         </div>
       </div>
     </div>

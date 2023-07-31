@@ -87,6 +87,7 @@
       document.getElementById('current-value').textContent = data.current || 'Data not available';
       document.getElementById('power-value').textContent = data.power || 'Data not available';
       document.getElementById('voltage-value').textContent = data.voltage || 'Data not available';
+      document.getElementById('energy-value').textContent = data.energy || 'Data not available';
     });
   </script>
 
@@ -114,6 +115,9 @@
         
           <h5>Voltage: (in Volt)</h5>
           <h6 id="voltage-value" style="color: red">Loading...</h6>
+
+          <h5>Energy: (in Joule)</h5>
+          <h6 id="energy-value" style="color: red">Loading...</h6>
           
         </div>
       </div>
@@ -133,6 +137,9 @@
         
           <p>Voltage: (in Volt)</p>
           <p id="voltage-value">...</p>
+
+          <p>Energy: (in Joule)</p>
+          <p id="energy-value">...</p>
           
         </div>
       </div>
@@ -152,12 +159,30 @@
         
           <p>Voltage: (in Volt)</p>
           <p id="voltage-value">...</p>
+
+          <p>Energy: (in Joule)</p>
+          <p id="energy-value">...</p>
           
         </div>
       </div>
     </div>
   </div>
 </div>
+<script>
+  // Function to update the switch state based on the current-value
+  function updateSwitchState() {
+    const current = parseFloat(document.getElementById('current-value').textContent);
+    const switchElement = document.getElementById('flexSwitchCheckChecked');
+    switchElement.checked = current !== 0;
+  }
+
+  // Call the function once to set the initial state
+  updateSwitchState();
+
+  // Set up an event listener to update the switch state whenever current-value changes
+  const currentValueElement = document.getElementById('current-value');
+  currentValueElement.addEventListener('DOMSubtreeModified', updateSwitchState);
+</script>
 
   </body>
 </html>

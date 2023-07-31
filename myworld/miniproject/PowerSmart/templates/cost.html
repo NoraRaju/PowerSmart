@@ -84,7 +84,7 @@
           const data = snapshot.val();
     
           // Update the values on the web page
-          document.getElementById('kettle-power').textContent = data.power || 'Data not available';
+          document.getElementById('current-value').textContent = data.current || 'Data not available';
         });
       </script>
     <div class="maincon">
@@ -125,9 +125,7 @@
                         <span class="fw-bold creation-date">Creation Date: </span>
                       </li>
                       
-                  <li class="text-muted"><i class="fas fa-circle" style="color:#84B0CA ;"></i> <span
-                      class="me-1 fw-bold">Status:</span><span class="badge bg-warning text-black fw-bold">
-                      Unpaid</span></li>
+                  
                 </ul>
               </div>
             </div>
@@ -165,21 +163,21 @@
                   <tr>
                     <th scope="row">1</th>
                     <td>Kettle</td>
-                    <td>4</td>
+                    <td id="current-value">4</td>
                     <td>2.0</td>
                     <td id="amount1"></td>
                   </tr>
                   <tr>
                     <th scope="row">2</th>
                     <td>Fridge</td>
-                    <td>0.001</td>
+                    <td>1</td>
                     <td>2.0</td>
                     <td id="amount2"></td>
                   </tr>
                   <tr>
                     <th scope="row">3</th>
                     <td>Microwave</td>
-                    <td>0.001</td>
+                    <td>1</td>
                     <td>2.0</td>
                     <td id="amount3"></td>
                   </tr>
@@ -221,44 +219,65 @@
   </div>
   
   <script>
+    // Function to calculate the amount for an appliance
     function calculateAmount(currentUnits, costPerUnit) {
       // Multiply currentUnits by 1000 to convert to whole number
       const currentUnitsWhole = currentUnits * 1000;
       return (currentUnitsWhole * costPerUnit) / 1000; // Divide by 1000 to get the actual amount
     }
   
+    // Function to calculate the subtotal
     function calculateSubtotal() {
       const amounts = document.querySelectorAll('[id^="amount"]');
       let subtotal = 0;
       amounts.forEach((amount) => {
-        subtotal += parseFloat(amount.textContent || 0);
+        const parsedAmount = parseFloat(amount.textContent);
+        subtotal += isNaN(parsedAmount) ? 0 : parsedAmount;
       });
       return subtotal;
     }
   
-    function calculateGrandTotal(subtotal) {
+    // Function to calculate the tax
+    function calculateTax(subtotal) {
       const taxPercentage = 15;
-      const taxAmount = (subtotal * taxPercentage) / 100;
-      return subtotal + taxAmount;
+      return (subtotal * taxPercentage) / 100;
     }
   
-    function updateTable() {
-      const currentUnits = [4, 0.001, 0.001]; // Update the values here (e.g., [4, 2, 1])
-      const costPerUnit = [2.0, 2.0, 2.0]; // Update the actual cost per unit here
-      for (let i = 1; i <= 3; i++) {
-        const amount = calculateAmount(currentUnits[i - 1], costPerUnit[i - 1]);
-        document.getElementById(`amount${i}`).textContent = `Rs ${amount.toFixed(2)}`;
-      }
+    // Function to calculate the grand total
+    function calculateGrandTotal(subtotal, tax) {
+      return subtotal + tax;
+    }
   
+    // Function to update the table values
+    function updateTable() {
+      const currentUnits = parseFloat(document.getElementById('current-value').textContent);
+      const costPerUnit = 2.0; // Cost per unit for all appliances
+  
+      // Calculate the amount for kettle
+      const amount1 = calculateAmount(currentUnits, costPerUnit);
+      document.getElementById('amount1').textContent = `Rs ${amount1.toFixed(2)}`;
+  
+      // Set the current units for fridge and microwave to zero
+      document.getElementById('amount2').textContent = `Rs 0.00`;
+      document.getElementById('amount3').textContent = `Rs 0.00`;
+  
+      // Calculate the subtotal
       const subtotal = calculateSubtotal();
       document.getElementById('subtotal').textContent = `Rs ${subtotal.toFixed(2)}`;
   
-      const grandTotal = calculateGrandTotal(subtotal);
+      // Calculate the tax
+      const tax = calculateTax(subtotal);
+      document.getElementById('tax').textContent = `Rs ${tax.toFixed(2)}`;
+  
+      // Calculate the grand total
+      const grandTotal = calculateGrandTotal(subtotal, tax);
       document.getElementById('grandTotal').textContent = `Rs ${grandTotal.toFixed(2)}`;
     }
   
+    // Call the function to update the table values
     updateTable();
   </script>
+  
   
 
   
