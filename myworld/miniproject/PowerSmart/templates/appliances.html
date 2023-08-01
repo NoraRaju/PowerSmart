@@ -88,6 +88,7 @@
       document.getElementById('power-value').textContent = data.power || 'Data not available';
       document.getElementById('voltage-value').textContent = data.voltage || 'Data not available';
       document.getElementById('energy-value').textContent = data.energy || 'Data not available';
+      document.getElementById('cost-value').textContent = data.cost || 'Data not available';
     });
   </script>
 
@@ -118,6 +119,8 @@
 
           <h5>Energy: (in Joule)</h5>
           <h6 id="energy-value" style="color: red">Loading...</h6>
+          <h5>cost:</h5>
+          <h6 id="cost-value" style="color: red">Loading...</h6>
           
         </div>
       </div>

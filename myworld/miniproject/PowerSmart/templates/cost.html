@@ -57,38 +57,8 @@
           </span>
         </nav>
       </aside>
-      <script type="module">
-        // Import the functions you need from the SDKs you need
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
-        import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-database.js";
-    
-        // Your web app's Firebase configuration
-        const firebaseConfig = {
-          apiKey: "AIzaSyAbmZPy5lUsA0mo_0tbkSH2DemypRRgyb4",
-          authDomain: "powersmart-f14f1.firebaseapp.com",
-          databaseURL: "https://powersmart-f14f1-default-rtdb.firebaseio.com",
-          projectId: "powersmart-f14f1",
-          storageBucket: "powersmart-f14f1.appspot.com",
-          messagingSenderId: "514395710434",
-          appId: "1:514395710434:web:08995e3ea6bf699cda0fbb",
-          measurementId: "G-8916GFC3LH"
-        };
-    
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const database = getDatabase(app);
-    
-        // Access the Firebase Realtime Database and retrieve data
-        const dataRef = ref(database, "/sensorData");
-        onValue(dataRef, (snapshot) => {
-          const data = snapshot.val();
-    
-          // Update the values on the web page
-          document.getElementById('current-value').textContent = data.current || 'Data not available';
-        });
-      </script>
-    <div class="maincon">
-    <div class="card">
+      <div class="maincon">
+      <div class="card">
       <div class="card-body">
         <div class="container mb-5 mt-3">
           <div class="row d-flex align-items-baseline">
@@ -164,22 +134,22 @@
                     <th scope="row">1</th>
                     <td>Kettle</td>
                     <td id="current-value">4</td>
-                    <td>2.0</td>
-                    <td id="amount1"></td>
+                    <td>0.5</td>
+                    <td id="cost-value"></td>
                   </tr>
                   <tr>
                     <th scope="row">2</th>
                     <td>Fridge</td>
-                    <td>1</td>
-                    <td>2.0</td>
-                    <td id="amount2"></td>
+                    <td>0</td>
+                    <td>0.5</td>
+                    <td>0.0</td>
                   </tr>
                   <tr>
                     <th scope="row">3</th>
                     <td>Microwave</td>
-                    <td>1</td>
-                    <td>2.0</td>
-                    <td id="amount3"></td>
+                    <td>0</td>
+                    <td>0.5</td>
+                    <td>0.0</td>
                   </tr>
                 </tbody>
     
@@ -191,17 +161,13 @@
                 <p class="ms-3"></p>
     
               </div>
-              <div class="col-xl-3">
-                <p>Subtotal: <span id="subtotal">0</span></p>
-                <p>Tax (15%): <span id="tax">0</span></p>
-                <p>Grand Total: <span id="grandTotal">0</span></p>
-                <!--<ul class="list-unstyled">
-                  <li class="ms-3"><p>Subtotal: <span id="subtotal">0</span></p></li>
-                  <li class="ms-3 mt-2"><span class="text-black me-4">Tax(15%)</span>$111</li>
-                </ul>
-                <p class="text-black float-start"><span class="text-black me-3"> Total Amount</span><span
-                    style="font-size: 25px;">$1221</span></p>-->
-              </div>
+
+<div class="col-xl-3">
+  <p data-subtotal>Subtotal: Rs. </p>
+  <p data-tax>Tax (15%): </p>
+  <p data-grand-total>Grand Total: </p>
+</div>
+
             </div>
                         <hr>
             <div class="row">
@@ -218,65 +184,52 @@
     
   </div>
   
-  <script>
-    // Function to calculate the amount for an appliance
-    function calculateAmount(currentUnits, costPerUnit) {
-      // Multiply currentUnits by 1000 to convert to whole number
-      const currentUnitsWhole = currentUnits * 1000;
-      return (currentUnitsWhole * costPerUnit) / 1000; // Divide by 1000 to get the actual amount
-    }
-  
-    // Function to calculate the subtotal
-    function calculateSubtotal() {
-      const amounts = document.querySelectorAll('[id^="amount"]');
-      let subtotal = 0;
-      amounts.forEach((amount) => {
-        const parsedAmount = parseFloat(amount.textContent);
-        subtotal += isNaN(parsedAmount) ? 0 : parsedAmount;
-      });
-      return subtotal;
-    }
-  
-    // Function to calculate the tax
-    function calculateTax(subtotal) {
-      const taxPercentage = 15;
-      return (subtotal * taxPercentage) / 100;
-    }
-  
-    // Function to calculate the grand total
-    function calculateGrandTotal(subtotal, tax) {
-      return subtotal + tax;
-    }
-  
-    // Function to update the table values
-    function updateTable() {
-      const currentUnits = parseFloat(document.getElementById('current-value').textContent);
-      const costPerUnit = 2.0; // Cost per unit for all appliances
-  
-      // Calculate the amount for kettle
-      const amount1 = calculateAmount(currentUnits, costPerUnit);
-      document.getElementById('amount1').textContent = `Rs ${amount1.toFixed(2)}`;
-  
-      // Set the current units for fridge and microwave to zero
-      document.getElementById('amount2').textContent = `Rs 0.00`;
-      document.getElementById('amount3').textContent = `Rs 0.00`;
-  
-      // Calculate the subtotal
-      const subtotal = calculateSubtotal();
-      document.getElementById('subtotal').textContent = `Rs ${subtotal.toFixed(2)}`;
-  
-      // Calculate the tax
-      const tax = calculateTax(subtotal);
-      document.getElementById('tax').textContent = `Rs ${tax.toFixed(2)}`;
-  
-      // Calculate the grand total
-      const grandTotal = calculateGrandTotal(subtotal, tax);
-      document.getElementById('grandTotal').textContent = `Rs ${grandTotal.toFixed(2)}`;
-    }
-  
-    // Call the function to update the table values
-    updateTable();
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+    import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-database.js";
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyAbmZPy5lUsA0mo_0tbkSH2DemypRRgyb4",
+      authDomain: "powersmart-f14f1.firebaseapp.com",
+      databaseURL: "https://powersmart-f14f1-default-rtdb.firebaseio.com",
+      projectId: "powersmart-f14f1",
+      storageBucket: "powersmart-f14f1.appspot.com",
+      messagingSenderId: "514395710434",
+      appId: "1:514395710434:web:08995e3ea6bf699cda0fbb",
+      measurementId: "G-8916GFC3LH"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+
+    // Access the Firebase Realtime Database and retrieve data
+    const dataRef = ref(database, "/sensorData");
+    onValue(dataRef, (snapshot) => {
+      const data = snapshot.val();
+
+      // Extract the cost value from the data object
+    const costValue = parseFloat(data.cost) || 0;
+
+// Update the values on the web page
+document.getElementById('cost-value').textContent = costValue;
+
+// Update Subtotal
+document.querySelector('p[data-subtotal]').textContent = `Subtotal: Rs. ${costValue}`;
+
+// Calculate Tax
+const taxValue = costValue * 0.15;
+document.querySelector('p[data-tax]').textContent = `Tax (15%): Rs. ${taxValue.toFixed(2)}`;
+
+// Calculate Grand Total
+const grandTotal = costValue + taxValue;
+document.querySelector('p[data-grand-total]').textContent = `Grand Total: Rs. ${grandTotal.toFixed(2)}`;
+});
   </script>
+
+ 
   
   
 
